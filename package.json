@@ -1,0 +1,17 @@
+{
+  "name": "hair_server",
+  "version": "2.1.0",
+  "description": "",
+  "main": "",
+  "scripts": {"start": "node app.js"},
+  "author": "StephenKing",
+  "license": "MIT",
+  "devDependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "fake-indexeddb": "^2.1.1",
+    "js-shortid": "^0.1.1",
+    "multer": "^1.4.2"
+  }
+}

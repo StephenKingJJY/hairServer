@@ -5,8 +5,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hello_Hair</title>
+<%
+if not empty? server.in.session "username [$ [<!--]] 
+%>
+<meta http-equiv="Refresh" content="0; Url=/login" >
+<%
+if not empty? server.in.session "username [$ [!-->]] 
+%>
 </head>
 <body>
-<%$ word "hello "hair%>
+<%$ (word "Hello char 32 server.in.session "username "!)%>
 </body>
 </html>

@@ -1,0 +1,23 @@
+;将logo变量转义成json格式
+
+to server.json.create :json
+op server.json.create.core :json "
+end
+
+to server.json.create.core :json :n
+if word? :json [op (word "\" :json "\")]
+if list? :json [
+    repeat (count :json)/2 [
+        make "n (word :n "\" item repcount*2-1 :json "\": server.json.create.core item repcount*2 :json " ",)
+    ]
+    op (word "_%h1%_ bl :n "_%h2%_)
+]
+if array? :json [
+    repeat count :json [
+        make "n (word :n server.json.create.core item repcount :json " ",)
+    ]
+    op (word "_%h3%_ bl :n "_%h4%_)
+]
+end
+
+copydef "$json.create "server.json.create

@@ -17,6 +17,7 @@
     "js-shortid": "^0.1.1",
     "multer": "^1.4.2",
     "nodemon": "^2.0.4",
-    "open": "^7.0.4"
+    "open": "^7.0.4",
+    "xd-synchttp": "^0.4.1"
   }
 }

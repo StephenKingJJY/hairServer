@@ -3688,7 +3688,9 @@ function LogoInterpreter(turtle, stream, savehook)
     return value;
   });
 
-  // HairServer_v2.1
+  // HairServer_v2.2
+  var sync = require("xd-synchttp");
+
   def(["server.out", "$"], function(thing) {
     var s = Array.from(arguments).map(stringify_nodecorate).join(" ");
     throw new Output(s);
@@ -3697,6 +3699,9 @@ function LogoInterpreter(turtle, stream, savehook)
     var s = Array.from(arguments).map(stringify).join(" ");
     console.log(s);
     return ;
+  });
+  def(["server.http", "$http"], function(url,method,post,timeout) {
+    return sync.sync_http(url,method,post,timeout);
   });
 }
 

@@ -1,0 +1,3 @@
+ifelse empty? $session "username [make "json [username 未登录] ][make "json se "username $session "username]
+$ $json.create :json
+;$log $http "http://cloud.fanruan.com/api/query/weather "get [] 3

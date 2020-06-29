@@ -3710,6 +3710,9 @@ function LogoInterpreter(turtle, stream, savehook)
   def(["server.lowdb", "$lowdb"], function() {
     return JSON.stringify(lowdb.get('posts').find({ id: 1 }).value());
   });
+  def(["server.json.parse", "$json.parse"], function(json,path) {
+    return eval('JSON.parse(json)'+path);
+  });
 }
 
 function hook(orig, func) {

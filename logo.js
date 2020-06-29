@@ -3690,6 +3690,10 @@ function LogoInterpreter(turtle, stream, savehook)
 
   // HairServer_v2.2
   var sync = require("xd-synchttp");
+  var low = require("lowdb");
+  const low_fileSync = require('lowdb/adapters/FileSync');
+  const low_adapter = new low_fileSync('./database/db.json');
+  const lowdb = low(low_adapter);
 
   def(["server.out", "$"], function(thing) {
     var s = Array.from(arguments).map(stringify_nodecorate).join(" ");
@@ -3703,8 +3707,10 @@ function LogoInterpreter(turtle, stream, savehook)
   def(["server.http", "$http"], function(url,method,post,timeout) {
     return sync.sync_http(url,method,post,timeout);
   });
+  def(["server.lowdb", "$lowdb"], function() {
+    return JSON.stringify(lowdb.get('posts').find({ id: 1 }).value());
+  });
 }
-
 
 function hook(orig, func) {
   return function() {

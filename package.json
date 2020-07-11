@@ -1,6 +1,6 @@
 {
   "name": "hair_server",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "",
   "main": "",
   "scripts": {
@@ -19,6 +19,6 @@
     "multer": "^1.4.2",
     "nodemon": "^2.0.4",
     "open": "^7.0.4",
-    "xd-synchttp": "^0.4.1"
+    "sync-request": "^6.1.0"
   }
 }

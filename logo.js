@@ -3689,7 +3689,7 @@ function LogoInterpreter(turtle, stream, savehook)
   });
 
   // HairServer_v2.2
-  var sync = require("xd-synchttp");
+  var sync = require("sync-request");
   var low = require("lowdb");
   const low_fileSync = require('lowdb/adapters/FileSync');
   const low_adapter = new low_fileSync('./database/db.json');
@@ -3704,8 +3704,8 @@ function LogoInterpreter(turtle, stream, savehook)
     console.log(s);
     return ;
   });
-  def(["server.http", "$http"], function(url,method,post,timeout) {
-    return sync.sync_http(url,method,post,timeout);
+  def(["server.http", "$http"], function(url,method,post) {
+    return sync(method,url,post);
   });
   def(["server.lowdb", "$lowdb"], function() {
     return JSON.stringify(lowdb.get('posts').find({ id: 1 }).value());
